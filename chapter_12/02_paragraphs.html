@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3: Filtering a selection, based on data</title>
+		<script type="text/javascript" src="../d3.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			var dataset = [ 5, 10, 15, 20, 25 ];
+			
+			var allParas = d3.select("body").selectAll("p")
+				.data(dataset)
+				.enter()
+				.append("p")
+				.text(function(d) {
+					return "I can count up to " + d;
+				});
+
+			var redParas = allParas.filter(function(d) {
+					return d > 15;
+				})
+				.style("color", "red");
+			
+		</script>
+	</body>
+</html>
